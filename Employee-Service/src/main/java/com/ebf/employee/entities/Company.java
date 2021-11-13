@@ -11,8 +11,6 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @OneToMany(mappedBy = "company")
-    private Set<Employee> employees = new HashSet<>();
 
     public long getId() {
         return id;
@@ -28,13 +26,5 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
     }
 }
