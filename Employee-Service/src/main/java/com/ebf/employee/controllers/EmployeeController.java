@@ -33,8 +33,8 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
-    @PostMapping("/delete")
-    public Iterable<Employee> deleteCompany(@RequestBody Long id) {
+    @PostMapping("/delete/{id}")
+    public Iterable<Employee> deleteCompany(@PathVariable Long id) {
         employeeRepository.deleteById(id);
         return employeeRepository.findAll();
     }

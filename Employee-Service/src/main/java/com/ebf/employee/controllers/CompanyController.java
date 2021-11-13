@@ -28,8 +28,8 @@ public class CompanyController {
         return companyRepository.findAll();
     }
 
-    @PostMapping("/delete")
-    public Iterable<Company> deleteCompany(@RequestBody Long id) {
+    @PostMapping("/delete/{id}")
+    public Iterable<Company> deleteCompany(@PathVariable Long id) {
         companyRepository.deleteById(id);
         return companyRepository.findAll();
     }
