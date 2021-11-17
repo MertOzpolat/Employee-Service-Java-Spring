@@ -15,7 +15,16 @@ public class Employee {
     private String surname;
     private String email;
     private double salary;
-    private long companyId;
+    @ManyToOne
+    private Company company;
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
 
     public long getId() {
@@ -56,13 +65,5 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
-    }
-
-    public long getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(long companyId) {
-        this.companyId = companyId;
     }
 }
