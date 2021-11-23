@@ -1,5 +1,9 @@
 package com.ebf.employee.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,7 +19,9 @@ public class Employee {
     private String surname;
     private String email;
     private double salary;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="company_id")
+    @JsonIgnoreProperties({"employees","hibernateLazyInitializer","handler"})
     private Company company;
 
     public Company getCompany() {
