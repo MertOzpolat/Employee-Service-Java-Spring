@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Employee {
@@ -20,8 +21,8 @@ public class Employee {
     private String email;
     private double salary;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="company_id")
-    @JsonIgnoreProperties({"employees","hibernateLazyInitializer","handler"})
+    @JoinColumn(name = "company_id")
+    @JsonIgnoreProperties({"employees", "hibernateLazyInitializer", "handler"})
     private Company company;
 
     public Company getCompany() {
@@ -72,4 +73,17 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Employee employee = (Employee) obj;
+        return id == employee.id && Objects.equals(name, employee.name);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
 }
