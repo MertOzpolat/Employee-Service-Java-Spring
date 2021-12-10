@@ -62,8 +62,8 @@ To update an employee, send POST request to employees endpoint with json body.<b
 [POST] localhost:8080/employees <br />JSON body should be: <br /> `{"id":1,"name":"NameUpdated","surname":"EmployeeSurname","email":"mertozpolatt@gmail.com","salary":1000,"company":{"id":"1","name":"EBFUpdatedName"}}`
 
 ### Get Employees Of Company
-To get the list of employees of a company, send GET request to employees endpoint with PathVariable companyId.<br />
-[GET] localhost:8080/employees/1 <br /> `PathVariable 1 is companyId`
+To get the list of employees of a company, send GET request to employees endpoint with Query parameter companyId.<br />
+[GET] localhost:8080/employees?companyId=1 <br /> `Optional companyId as a Query parameter can be provided`
 
 ### Get Average Salary
 To get the average salary of a company, send GET request to companies/averageSalary endpoint with PathVariable companyId. <br />

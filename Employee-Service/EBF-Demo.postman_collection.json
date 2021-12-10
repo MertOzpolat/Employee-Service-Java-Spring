@@ -139,14 +139,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/employees/1",
+					"raw": "localhost:8080/employees?companyId=2",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"employees",
-						"1"
+						"employees"
+					],
+					"query": [
+						{
+							"key": "companyId",
+							"value": "2"
+						}
 					]
 				}
 			},
